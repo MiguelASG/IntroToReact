@@ -1,6 +1,15 @@
 # IntroToReact
 
 
+## Uso de la aplicación
+para descargar las dependencias y que la app funcione se debe utilizar el comando **npm i**.
+
+Luego de descargadas las dependencias puede ser ejecutada con el comando **npm start**.
+
+Y se podra ver la app en el navegador con la siguiente dirección **http://localhost:3000/**.
+
+--------
+
 La presencia de este documento en este repositorio es un compromiso explícito de los colaboradores de seguir el siguiente código de honor:
 
 Código de Honor
