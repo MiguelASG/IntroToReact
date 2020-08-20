@@ -2,11 +2,14 @@ import React from "react";
 import {TodoList} from "./TodoList";
 
 
-class TodoApp extends React.Component {
+export class TodoApp extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { items: [], text: '' };
-        this.handleChange = this.handleChange.bind(this);
+        this.state = { items: [{text:"Learn React", priority:5, dueDate: new Date() },
+                {text:"Learn about APIs", priority:4, dueDate: new Date(2020,1,23) },
+                {text:"write TODO App", priority:3, dueDate: new Date(2020,1,30) }], text: '' , priority: ""};
+        this.handleChangePriority = this.handleChangePriority.bind(this);
+        this.handleChangeText = this.handleChangeText.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -14,16 +17,26 @@ class TodoApp extends React.Component {
         return (
             <div>
                 <h3>TODO</h3>
-                <TodoList items={this.state.items} />
+                <TodoList todoList={this.state.items} />
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="new-todo">
-                        What needs to be done?
+                    <label htmlFor="new-text">
+                        Text
                     </label>
                     <input
-                        id="new-todo"
-                        onChange={this.handleChange}
+                        id="new-text"
+                        onChange={this.handleChangeText}
                         value={this.state.text}
                     />
+                    <label htmlFor="new-priority">
+                        Priority
+                    </label>
+                    <input
+                        id="new-priority"
+                        onChange={this.handleChangePriority}
+                        value={this.state.text}
+                    />
+
+
                     <button>
                         Add #{this.state.items.length + 1}
                     </button>
@@ -32,22 +45,22 @@ class TodoApp extends React.Component {
         );
     }
 
-    handleChange(e) {
+    handleChangeText(e) {
         this.setState({ text: e.target.value });
+    }
+
+    handleChangePriority(e){
+        this.setState({priority: e.target.value });
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        if (!this.state.text.length) {
-            return;
+        const item = {text: this.state.text,
+            priority: this.state.priority,
+            dueDate: new Date()
         }
-        const newItem = {
-            text: this.state.text,
-            id: Date.now()
-        };
-        this.setState(prevState => ({
-            items: prevState.items.concat(newItem),
-            text: ''
-        }));
+        this.setState(prev => ({
+            items: [...prev.items, item]
+        }))
     }
 }

@@ -12,9 +12,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <TodoApp />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          <TodoList todoList={todos}/>
+
           &lt;h1&gt;TODO React App&lt;/h1&gt;
         </p>
         <a
