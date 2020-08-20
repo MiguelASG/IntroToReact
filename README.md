@@ -3,7 +3,7 @@
 
 La presencia de este documento en este repositorio es un compromiso explícito de los colaboradores de seguir el siguiente código de honor:
 
-#Código de Honor
+Código de Honor
 ------
 Debes seguir el Código de honor del ingeniero de sistemas para defender el estándar de integridad académica de la ECI:
 
